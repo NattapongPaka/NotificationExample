@@ -1,0 +1,46 @@
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="10dp"
+    android:id="@+id/row_chat_unreadmessages"
+    android:paddingTop="10dp">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:visibility="gone"
+            android:id="@+id/chat_id" />
+
+        <TextView
+            android:id="@+id/chat_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/new_messages"
+            android:id="@+id/unreadLabel"
+            android:textColor="@color/primary"
+            android:textStyle="bold"
+            android:textSize="11sp"
+            android:paddingLeft="10dp" />
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:id="@+id/linesegment"
+            android:background="@color/primary"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp" />
+
+    </LinearLayout>
+</TableRow>

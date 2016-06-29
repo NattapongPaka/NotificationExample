@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:yourapp="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_groupOptions"
+        yourapp:showAsAction="always"
+        android:icon="@drawable/ic_more_vert_white_24dp"
+        android:title="edit">
+
+        <menu>
+            <item
+                android:id="@+id/action_editphoto"
+                android:orderInCategory="200"
+                android:title="Edit Group Photo"
+                android:onClick="editPhoto" />
+            <item
+                android:id="@+id/action_delgroup"
+                android:orderInCategory="200"
+                android:title="Delete Group"
+                android:onClick="delGroup" />
+        </menu>
+
+    </item>
+
+</menu>

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="fill_parent"
+                android:layout_height="24dp"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/chatmessage"
+                android:background="@drawable/rowheader1"
+                android:paddingLeft="10dp"
+                android:paddingTop="3dp" />
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageView2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:text="CHAT SETTINGS"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                style="@style/HeadTextRow" />
+
+
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:id="@+id/number"
+                    android:layout_width="304dp"
+                    android:layout_height="36dp"
+                    android:layout_alignParentLeft="true"
+                    android:inputType="number"
+                    android:background="@drawable/halfdownarrow"
+                    android:paddingLeft="8dp"
+                    android:layout_marginTop="3dp" />
+
+                <ImageView
+                    android:id="@+id/fontList"
+                    android:layout_width="104dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/downarrow"
+
+                    android:layout_alignTop="@+id/number"
+                    android:layout_alignRight="@+id/number"
+                    android:layout_alignEnd="@+id/number" />
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="96dp"
+                    android:layout_height="20dp"
+                    android:text="Medium"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#666666"
+                    android:textSize="14dp"
+                    android:layout_marginRight="43dp"
+                    android:layout_alignTop="@+id/username"
+                    android:layout_alignRight="@+id/number"
+                    android:layout_alignEnd="@+id/number" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Font Size"
+                    android:textColor="#333333"
+                    android:id="@+id/username"
+                    android:layout_alignTop="@+id/number"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14dp" />
+
+            </RelativeLayout>
+
+<!--
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:id="@+id/pic"
+                    android:layout_width="304dp"
+                    android:layout_height="36dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_toLeftOf="@+id/pic"
+                    android:inputType="number"
+                    android:background="@drawable/halfdownarrow"
+                    android:paddingLeft="8dp"
+                    android:layout_marginTop="3dp" />
+
+                <ImageView
+                    android:id="@+id/setting"
+                    android:layout_width="104dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/downarrow"
+                    android:layout_alignTop="@+id/pic"
+                    android:layout_alignRight="@+id/pic"
+                    android:layout_alignEnd="@+id/pic"
+                     />
+
+                <TextView
+                    android:id="@+id/textViewWallpaper"
+                    android:layout_width="96dp"
+                    android:layout_height="20dp"
+                    android:text="Red Mist"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#666666"
+                    android:textSize="14dp"
+                    android:layout_marginRight="43dp"
+                    android:layout_alignRight="@+id/pic"
+                    android:layout_alignEnd="@+id/pic"
+                    android:layout_alignTop="@+id/wallpaper" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Wallpaper"
+                    android:textColor="#333333"
+                    android:id="@+id/wallpaper"
+                    android:layout_alignTop="@+id/pic"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14dp" />
+
+            </RelativeLayout>
+-->
+            <TextView
+                android:id="@+id/chatmessage"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageView2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:text="ABOUT"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                style="@style/HeadTextRow" />
+
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="This application is powered by getConnected v"
+                    android:id="@+id/powerby"
+                    android:layout_marginTop="3dp"
+                    android:textSize="12dp"
+                    android:textColor="#999999"
+                    android:shadowColor="#65FFFFFF" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="1.5"
+                    android:id="@+id/version"
+                    android:layout_marginTop="3dp"
+                    android:textSize="12dp"
+                    android:textColor="#999999"
+                    android:shadowColor="#65FFFFFF"
+                    android:layout_toRightOf="@+id/powerby" />
+            </RelativeLayout>
+
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>

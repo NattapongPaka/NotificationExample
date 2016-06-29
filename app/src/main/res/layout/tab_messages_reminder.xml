@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:orientation="horizontal"
+    android:layout_height="fill_parent"
+    android:baselineAligned="false"
+    android:id="@+id/row_reminder">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:src="@drawable/container"
+            android:id="@+id/bgView2"
+            android:scaleType="fitXY"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="5dp"
+            android:layout_alignBottom="@+id/linearLayout2"
+            android:layout_alignTop="@+id/linearLayout2" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout2">
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
+
+                <ImageView
+                    android:id="@+id/typeIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/rowicon_reminder" />
+
+                <ImageView
+                    android:id="@+id/icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="47dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/lb_container"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignBottom="@+id/title" />
+
+                <TextView
+                    android:id="@+id/cal_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="55dp"
+                    android:maxWidth="200dip"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#382C2C"
+                    android:typeface="sans"
+                    android:textSize="16dp"
+                    android:textStyle="italic"
+                    android:text="test test"
+                    android:layout_marginLeft="54dp"
+                    android:layout_marginRight="20dp"
+                    android:paddingBottom="5dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:id="@+id/relativeContact">
+
+                <ImageView
+                    android:id="@+id/userImage"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/defaultuserimg_sq"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginLeft="15dp" />
+
+                <TextView
+                    android:id="@+id/username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:typeface="sans"
+                    android:textSize="11dp"
+                    android:textStyle="bold"
+                    android:text="Alexander Krov"
+                    android:layout_marginLeft="55dp"
+                    android:maxWidth="200dip" />
+
+                <TextView
+                    android:id="@+id/sentTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10dp"
+                    android:textStyle="normal"
+                    android:textColor="#999999"
+                    android:layout_toStartOf="@+id/createdate"
+                    android:text="9 days ago"
+                    android:layout_below="@+id/username"
+                    android:layout_alignLeft="@+id/username"
+                    android:layout_alignStart="@+id/username" />
+
+                <TextView
+                    android:id="@+id/commentNum"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/commentbubble"
+                    android:background="#CCCCCC"
+                    android:textColor="#FFFFFF"
+                    android:text="0"
+                    android:layout_gravity="center|right|top"
+                    android:gravity="center"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="15dp"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/commentBubble"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/commentbubble"
+                    android:layout_gravity="right|top"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="15dp" />
+            </RelativeLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</TableRow>

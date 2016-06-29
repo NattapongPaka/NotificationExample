@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/profileImage"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="ALBUM NAME"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#333333"
+            android:textSize="16sp" />
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_marginRight="10dp"
+            android:layout_height="36dp"
+            android:inputType="textPersonName"
+            android:layout_marginLeft="10dp"
+            android:ems="10"
+            android:id="@+id/albumNameText"
+            android:layout_centerVertical="true"
+            android:background="@drawable/textinput_long"
+            android:textColor="@color/text_secondary"
+            android:paddingLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:paddingRight="10dp"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!--LinearLayout
+        android:id="@+id/showLoading"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:animateLayoutChanges="true"
+        android:gravity="center_vertical|center_horizontal|center">
+
+        <com.github.lzyzsd.circleprogress.ArcProgress
+            android:gravity="center"
+            android:id="@+id/arc_progress1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:arc_progress="0"
+            custom:arc_finished_color="@color/primary"
+            app:arc_bottom_text="Uploading.." />
+    </LinearLayout-->
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="1">
+
+        <GridView
+            android:id="@+id/gridGallery"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:layout_marginBottom="-10dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="0dp"
+            android:numColumns="3"
+            android:padding="0dp"
+            android:verticalSpacing="3dp"
+            android:horizontalSpacing="3dp"
+            tools:listitem="@layout/gallery_item"></GridView>
+
+    </FrameLayout>
+
+</LinearLayout>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:orientation="horizontal"
+        android:layout_height="53dip"
+        android:clickable="true"
+        android:weightSum="1"
+        android:baselineAligned="false">
+
+        <!--  ListRow Left sided Thumbnail image -->
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="54dp"
+                android:id="@+id/imageView2"
+                android:src="@drawable/row2bg"
+                android:scaleType="fitXY" />
+
+
+            <TextView
+                android:id="@+id/title_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#999999"
+                android:typeface="sans"
+                android:layout_marginTop="20dp"
+                android:maxLines="1"
+                android:text="Mobile"
+                android:layout_marginLeft="10dp"
+                android:ellipsize="end"
+                android:maxWidth="200dip"
+                style="@style/HeadTextRow"/>
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:typeface="sans"
+                android:layout_marginTop="20dp"
+                android:maxLines="1"
+                android:text="091-7373413"
+                android:layout_marginLeft="70dp"
+                android:ellipsize="end"
+                android:maxWidth="200dip"
+                style="@style/HeadTextRow"/>
+
+
+            <ImageButton
+                android:id="@+id/chatIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_phone"
+                android:layout_marginTop="10dp"
+                android:adjustViewBounds="false"
+                android:background="#FFFFFF"
+                android:layout_gravity="right"
+                android:layout_marginRight="10dp" />
+
+
+        </FrameLayout>
+
+    </TableRow>
+</LinearLayout>

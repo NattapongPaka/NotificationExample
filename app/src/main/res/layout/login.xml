@@ -1,0 +1,131 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.MainActivity"
+    android:clickable="true"
+    android:background="#FFFFFF">
+
+    <include
+        android:id="@+id/toolbar_centered_text"
+        layout="@layout/toolbar_centered_text" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:fillViewport="true"
+        android:layout_below="@id/toolbar_centered_text"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/scrollView" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:paddingTop="15dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_centerHorizontal="true">
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:src="@drawable/logo" />
+
+                <TextView
+                    android:id="@+id/sloganTextView"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="Slogan Company"
+                    android:layout_alignBottom="@+id/imageView2"
+                    android:layout_marginTop="30dp"
+                    android:textSize="14sp"
+                    android:textColor="#C0C0C0" />
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="120dp"
+                android:layout_alignParentRight="false"
+                android:layout_alignParentLeft="false"
+                android:layout_alignParentTop="false"
+                android:layout_alignWithParentIfMissing="false"
+                android:layout_centerHorizontal="true">
+
+                <ImageView
+                    android:id="@+id/loginView2"
+                    android:layout_width="320dp"
+                    android:layout_height="275dp"
+                    android:src="@drawable/login_loginbox"
+                    android:contentDescription="loginbox" />
+
+                <EditText
+                    android:id="@+id/usernameEditText"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="85dp"
+                    android:ems="10"
+                    android:background="#00000000"
+                    android:hint="email"
+                    android:textColorHint="#BABABA"
+                    android:textSize="14sp"
+                    android:inputType="textEmailAddress"
+                    android:fontFamily="Helvetica"
+                    android:textColor="@color/text_secondary">
+
+                    <requestFocus />
+                </EditText>
+
+                <EditText
+                    android:id="@+id/passwordEditText"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="135dp"
+                    android:ems="10"
+                    android:background="#00000000"
+                    android:hint="password"
+                    android:textColorHint="#BABABA"
+                    android:password="true"
+                    android:textSize="14dp"
+                    android:fontFamily="Helvetica"
+                    android:maxLines="1"
+                    android:inputType="textPassword"
+                    android:textColor="@color/text_secondary">
+
+                    <requestFocus />
+                </EditText>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_marginTop="180dp"
+                    android:layout_gravity="center_horizontal">
+
+                    <FrameLayout
+                        android:layout_width="246dp"
+                        android:layout_height="34dp"
+                        android:background="@drawable/button_default_bg"
+                        android:layout_gravity="center_horizontal"></FrameLayout>
+
+                    <ImageButton
+                        android:layout_width="250dp"
+                        android:layout_height="36dp"
+                        android:id="@+id/btnSignIn"
+                        android:background="@drawable/login_loginbutton"
+                        android:contentDescription="@string/btnSignIn" />
+
+                </FrameLayout>
+
+            </FrameLayout>
+        </RelativeLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+</RelativeLayout>

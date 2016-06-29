@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TableRow
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:orientation="horizontal"
+    android:layout_height="60dp"
+    android:clickable="true"
+    android:weightSum="1"
+    android:id="@+id/row_phone"
+    android:baselineAligned="false">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_marginBottom="10dp">
+
+            <EditText
+                android:id="@+id/phone"
+                android:layout_width="fill_parent"
+                android:layout_marginRight="60dp"
+                android:layout_height="36dp"
+                android:layout_alignParentLeft="true"
+                android:inputType="phone"
+                android:background="@drawable/textdropinput"
+                android:textColor="@color/text_secondary"
+                android:paddingLeft="10dp"
+                android:paddingRight="105dp"
+                android:layout_marginTop="5dp"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/customList"
+                android:layout_width="104dp"
+                android:layout_height="36dp"
+                android:src="@drawable/downarrow"
+                android:layout_alignTop="@+id/phone"
+                android:layout_alignRight="@+id/phone"
+                android:layout_alignEnd="@+id/phone" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="96dp"
+                android:layout_height="20dp"
+                android:text="Mobile"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#666666"
+                android:textSize="14dp"
+                android:layout_alignTop="@+id/phone"
+                android:layout_alignRight="@+id/phone"
+                android:layout_alignEnd="@+id/phone"
+                android:layout_marginTop="10dp"/>
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="17dp"
+                    android:layout_height="17dp"
+                    android:src="@drawable/x"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp" />
+
+        </RelativeLayout>
+
+</TableRow>

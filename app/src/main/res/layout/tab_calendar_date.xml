@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/tr_calendar"
+    android:layout_width="40dp"
+    android:layout_height="40dp"
+        android:background="@drawable/company_color_circle">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="16"
+            android:id="@+id/ListDate2"
+            android:textSize="22sp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="1dp"
+            android:textStyle="bold"
+            android:textColor="#888888" />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AUG"
+            android:id="@+id/textView2"
+        android:textSize="10sp"
+        android:textColor="#888888"
+        android:layout_below="@+id/ListDate2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-7dp" />
+</RelativeLayout>

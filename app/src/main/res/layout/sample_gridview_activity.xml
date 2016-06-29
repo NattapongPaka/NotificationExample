@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <LinearLayout
+        android:id="@+id/showLoading"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:animateLayoutChanges="true"
+        android:gravity="center_vertical|center_horizontal|center"
+        android:orientation="vertical">
+        <ProgressBar
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:progressDrawable="@drawable/progress"
+            android:id="@+id/progress"
+            android:progress="0"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:textColor="#C0C0C0"
+            android:textSize="12sp"
+            android:text="Uploading.."/>
+        <!--com.github.lzyzsd.circleprogress.ArcProgress
+            android:gravity="center"
+            android:id="@+id/arc_progress1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:arc_progress="0"
+            custom:arc_finished_color="@color/primary"
+            app:arc_bottom_text="Uploading.." /-->
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_weight="1">
+
+        <GridView
+            android:id="@+id/grid_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:numColumns="@integer/column_count"
+            android:scrollbarStyle="insideOverlay"
+            android:scrollbars="none"
+            android:listSelector="@null"
+            android:verticalSpacing="3dp"
+            android:horizontalSpacing="3dp"
+            tools:listitem="@layout/gallery_item"></GridView>
+
+        <FrameLayout
+            android:id="@+id/frameSelectCount"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/primary"
+            android:layout_gravity="bottom"
+            android:alpha=".9">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Selected (3)"
+                android:id="@+id/textView14"
+                android:layout_gravity="center"
+                android:password="false"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:typeface="sans"
+                android:textColor="@color/text_primary" />
+
+            <RelativeLayout
+                android:id="@+id/RelativeLayout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/btn_cancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cancel"
+                    android:layout_alignParentLeft="true" />
+
+                <Button
+                    android:id="@+id/btn_delete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Delete"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+        </FrameLayout>
+    </FrameLayout>
+</LinearLayout>

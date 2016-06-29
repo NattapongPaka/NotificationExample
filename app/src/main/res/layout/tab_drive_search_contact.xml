@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/parent">
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText"
+            android:background="@drawable/contacts_searchfield"
+            android:hint="Search..."
+            android:textColorHint="#BABABA"
+            android:paddingLeft="15dp"
+            android:paddingRight="40dp"
+            android:singleLine="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="50dp"
+            android:clickable="false"
+            android:textSize="14dp"
+            android:textIsSelectable="false"
+            android:textColor="@color/text_secondary" />
+    </RelativeLayout>
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="5dp"
+            >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical">
+
+                <dev.getconnectedapp.com.ListSenderFileDetail
+                    android:id="@+id/list_recent_file_detail"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:background="#FFFFFF"
+                    android:orientation="vertical"></dev.getconnectedapp.com.ListSenderFileDetail>
+
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

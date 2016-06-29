@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/recent_files"
+                android:id="@+id/albumLabel"
+                android:textColor="#CCCCCC"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="5dp" />
+
+            <!--
+            <dev.getconnectedapp.com.ListRecentFile
+                android:id="@+id/list_recent_file"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/albumLabel"
+                android:orientation="vertical"></dev.getconnectedapp.com.ListRecentFile>
+            -->
+
+            <ListView
+                android:id="@+id/list_recent_file"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:divider="@null"
+                android:touchscreenBlocksFocus="false"
+                android:textFilterEnabled="false"
+                android:paddingTop="5dp"
+                android:clipToPadding="false">
+            </ListView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/by_sender"
+                android:id="@+id/by_sender"
+                android:textColor="#CCCCCC"
+                android:textSize="18sp"
+                android:layout_below="@+id/ListDate2"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="5dp"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp" />
+
+    <!--
+            <dev.getconnectedapp.com.ListSenderFile
+                android:id="@+id/list_sender_file"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/albumLabel"
+                android:orientation="vertical"></dev.getconnectedapp.com.ListSenderFile>
+    -->
+            <ListView
+                android:id="@+id/list_sender_file"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:divider="@null"
+                android:touchscreenBlocksFocus="false"
+                android:textFilterEnabled="false"
+                android:paddingTop="5dp"
+                android:clipToPadding="false">
+            </ListView>
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>

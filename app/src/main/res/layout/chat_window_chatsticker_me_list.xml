@@ -1,0 +1,115 @@
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:orientation="horizontal"
+    android:layout_height="wrap_content"
+    android:weightSum="1"
+    android:baselineAligned="false"
+    android:id="@+id/row_chat_sticker_me_list">
+
+    <!--  ListRow Left sided Thumbnail image -->
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:layout_gravity="right"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentRight="true"
+            android:id="@+id/stickerContainer">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:visibility="gone"
+                android:id="@+id/chat_id" />
+
+            <TextView
+                android:id="@+id/chat_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <ImageView
+                android:layout_width="160dip"
+                android:layout_height="160dip"
+                android:id="@+id/sticker"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp" />
+
+            <TextView
+                android:layout_width="10dip"
+                android:layout_height="10dip"
+                android:visibility="gone"
+                android:id="@+id/sticker_code" />
+
+
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:text="11:27"
+            android:id="@+id/chattime"
+            android:layout_gravity="left"
+            android:layout_alignTop="@+id/stickerContainer"
+            android:layout_toLeftOf="@+id/stickerContainer"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="15dp"
+            style="@style/TimeChatRow"/>
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:visibility="gone"
+            android:src="@drawable/check"
+            android:id="@+id/read_user"
+            android:layout_marginRight="5dp"
+            android:singleLine="true"
+            android:layout_gravity="left"
+            android:layout_toLeftOf="@+id/chattime"
+            android:layout_alignTop="@+id/chattime" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="Read by 1"
+            android:id="@+id/read_group"
+            android:textSize="11sp"
+            android:textColor="@color/text_gray"
+            android:singleLine="true"
+            android:layout_gravity="left"
+            android:layout_alignTop="@+id/stickerContainer"
+            android:layout_toLeftOf="@+id/stickerContainer"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="5dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="11:27"
+            android:id="@+id/chattime_group"
+            android:textSize="11sp"
+            android:textColor="@color/text_gray"
+            android:singleLine="true"
+            android:layout_gravity="left"
+            android:layout_alignTop="@+id/stickerContainer"
+            android:layout_toLeftOf="@+id/stickerContainer"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp" />
+
+    </RelativeLayout>
+
+</TableRow>

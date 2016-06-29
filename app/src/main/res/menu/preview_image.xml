@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:yourapp="http://schemas.android.com/apk/res-auto">
+    <!--
+    <item
+        android:id="@+id/action_preview_share"
+        android:orderInCategory="100"
+        yourapp:showAsAction="ifRoom"
+        android:icon="@drawable/ic_share_white_36dp"
+        android:title="share">
+
+        <menu>
+            <item
+                android:id="@+id/action_preview_share_contactlist"
+                android:orderInCategory="100"
+                android:title="Send to a contact" />
+            <item
+                android:id="@+id/action_preview_share_app"
+                android:orderInCategory="200"
+                android:title="Share to app..." />
+        </menu>
+    </item>
+    -->
+    <!--<item-->
+        <!--android:id="@+id/save"-->
+        <!--android:orderInCategory="200"-->
+        <!--yourapp:showAsAction="always"-->
+        <!--android:icon="@drawable/ic_file_download_white_36dp"-->
+        <!--android:title="save" />-->
+
+    <item
+        android:id="@+id/event_menu_preview"
+        yourapp:showAsAction="always"
+        android:icon="@drawable/ic_more_vert_white_24dp"
+        android:title="More">
+
+        <menu>
+            <item
+                android:id="@+id/preview_shared_image"
+                android:orderInCategory="100"
+                android:icon="@drawable/ic_share_white_36dp"
+                android:title="Shared Image" />
+
+            <item
+                android:id="@+id/preview_save_image"
+                android:icon="@drawable/ic_file_download_white_36dp"
+                android:orderInCategory="200"
+                android:title="Save Image" />
+
+        </menu>
+
+    </item>
+
+</menu>

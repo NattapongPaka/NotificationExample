@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+<!--
+<ScrollView
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RECENT FILES"
+        android:id="@+id/albumLabel"
+        android:textColor="#ff9a9a9a"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="20dp" />
+<!--
+    <dev.getconnectedapp.com.ListSenderFileDetail
+        android:id="@+id/list_recent_file_detail"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/albumLabel"
+        android:orientation="vertical"></dev.getconnectedapp.com.ListSenderFileDetail>
+-->
+
+        <ListView
+            android:id="@+id/list_recent_file_detail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@null"
+            android:touchscreenBlocksFocus="false"
+            android:textFilterEnabled="false"
+            android:clipToPadding="false">
+        </ListView>
+
+    </LinearLayout>
+<!--
+</ScrollView>
+-->
+</LinearLayout>

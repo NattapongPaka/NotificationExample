@@ -1,0 +1,63 @@
+<TableRow
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:orientation="horizontal"
+    android:layout_height="54dp"
+    android:clickable="true"
+    android:weightSum="1"
+    android:baselineAligned="false">
+
+    <!--  ListRow Left sided Thumbnail image -->
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <ImageView
+            android:id="@+id/contact_row"
+            android:layout_width="fill_parent"
+            android:layout_height="54dp"
+            android:src="@drawable/contacts_row2bg"
+            android:scaleType="fitXY" />
+
+        <TextView
+            android:id="@+id/contact_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#333333"
+            android:textSize="14dp"
+            android:textStyle="normal"
+            android:layout_marginTop="15dp"
+            android:text="Contact Detail"
+            android:layout_marginLeft="79dp"
+            android:ellipsize="end"
+            android:maxWidth="200dip" />
+
+
+        <TextView
+            android:id="@+id/contact_type"
+            android:layout_width="92dp"
+            android:layout_height="wrap_content"
+            android:textColor="#999999"
+            android:textSize="11dp"
+            android:textStyle="normal"
+            android:layout_marginTop="17dp"
+            android:layout_marginLeft="12dp"
+            android:text="Contact Type" />
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="15dip"
+            android:adjustViewBounds="false"
+            android:background="#FFFFFF"
+            android:layout_gravity="right"
+            android:layout_marginRight="12dp"
+            android:src="@drawable/placeholder" />
+
+
+
+    </FrameLayout>
+
+</TableRow>

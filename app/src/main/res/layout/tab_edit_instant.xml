@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:orientation="horizontal"
+    android:layout_height="60dp"
+    android:clickable="true"
+    android:weightSum="1"
+    android:id="@+id/row_instant"
+    android:baselineAligned="false">
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_marginBottom="10dp">
+
+            <EditText
+                android:id="@+id/dates"
+                android:layout_width="fill_parent"
+                android:layout_height="36dp"
+                android:layout_marginRight="60dp"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/textdropinput"
+                android:textColor="@color/text_secondary"
+                android:paddingLeft="10dp"
+                android:paddingRight="105dp"
+                android:layout_marginTop="5dp"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/customList"
+                android:layout_width="104dp"
+                android:layout_height="36dp"
+                android:src="@drawable/downarrow"
+                android:layout_alignTop="@+id/dates"
+                android:layout_alignRight="@+id/dates"
+                android:layout_alignEnd="@+id/dates" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="96dp"
+                android:layout_height="20dp"
+                android:text="Skype"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#666666"
+                android:textSize="14dp"
+                android:layout_alignTop="@+id/relativeLayout"
+                android:layout_alignRight="@+id/customList"
+                android:layout_alignEnd="@+id/customList"
+                android:layout_marginTop="10dp" />
+
+
+            <RelativeLayout
+                android:layout_width="50dp"
+                android:layout_height="36dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentLeft="false"
+                android:id="@+id/relativeLayout"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp">
+
+                <ImageView
+                    android:id="@+id/imgDeleteInstant"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="96dp"
+                    android:layout_height="17dp"
+                    android:src="@drawable/x" />
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+    </FrameLayout>
+</TableRow>

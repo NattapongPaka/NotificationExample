@@ -1,0 +1,136 @@
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:orientation="horizontal"
+    android:layout_height="wrap_content"
+    android:weightSum="1"
+    android:baselineAligned="false"
+    android:id="@+id/row_chat_file_list">
+
+    <!--  ListRow Left sided Thumbnail image -->
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <android.support.v7.widget.AppCompatCheckBox
+            android:layout_marginLeft="8dp"
+            android:button="@drawable/selector_checkbox"
+            android:id="@+id/forward"
+            android:checked="false"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" />
+
+        <ImageView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:id="@+id/userImage"
+            android:src="@drawable/contacts_defaultuserimg_sq"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/forward"
+            android:layout_toEndOf="@+id/forward" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tareef Jafferi"
+            android:id="@+id/username"
+            android:layout_gravity="left|top"
+            android:layout_toRightOf="@+id/userImage"
+            android:layout_toEndOf="@+id/userImage"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            style="@style/UsernameChatRow"/>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:background="@drawable/chatw_whitebubble"
+            android:id="@+id/whiteBubble"
+            android:layout_below="@+id/username"
+            android:layout_toRightOf="@+id/userImage"
+            android:layout_toEndOf="@+id/userImage"
+            android:layout_marginLeft="9dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginRight="40dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="15dp"
+            android:paddingRight="40dp">
+
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="#6D6D6D"
+                android:id="@+id/file_background" />
+
+            <TextView
+                android:id="@+id/chat_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/file_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MP4"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="5.5dp"
+                android:layout_marginTop="10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:visibility="gone"
+                    android:id="@+id/chat_id" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="140903-141021"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="45dp"
+                    android:id="@+id/file_name" />
+
+                <TextView
+                    android:id="@+id/file_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="337.46 KB Added to Drive"
+                    android:textColor="#BBBBBB"
+                    android:textSize="11sp"
+                    android:layout_marginLeft="45dp"
+                    android:layout_gravity="left|bottom" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11:27"
+            android:id="@+id/chattime"
+            android:layout_gravity="right|top"
+            android:layout_toRightOf="@+id/whiteBubble"
+            android:layout_toEndOf="@+id/whiteBubble"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="-36dp"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentStart="false"
+            style="@style/TimeChatRow"/>
+    </RelativeLayout>
+
+</TableRow>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:clickable="false"
+        android:background="#FFFFFF">
+        <HorizontalScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:scrollbars="none"
+            android:id="@+id/HScrollView">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/row_calendar">
+
+             <!--
+
+                <include layout="@layout/tab_calendar_date"
+                    android:layout_width="33dp"
+                    android:layout_height="33dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="8dp"></include>
+
+                <include layout="@layout/tab_calendar_date"
+                    android:layout_width="33dp"
+                    android:layout_height="33dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="8dp"></include>
+             -->
+        </LinearLayout>
+
+        </HorizontalScrollView>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/no_event_calendar"
+        android:layout_marginTop="90dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView"
+            android:src="@drawable/noevents" />
+    </LinearLayout>
+<!--
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="none">
+-->
+        <ListView
+            android:id="@+id/list_calendar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@null"
+            android:touchscreenBlocksFocus="false"
+            android:textFilterEnabled="false"
+            android:paddingTop="5dp"
+            android:paddingBottom="15dp"
+            android:clipToPadding="false">
+        </ListView>
+<!--
+        <dev.getconnectedapp.com.ListCalendar
+            android:id="@+id/list_calendar"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="5dp"
+            android:layout_alignParentLeft="true"
+            android:orientation="vertical"></dev.getconnectedapp.com.ListCalendar>
+-->
+    <!--
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include layout="@layout/tab_calendar_event"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.02"></include>
+
+        <include layout="@layout/tab_calendar_event"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.02"></include>
+
+        <include layout="@layout/tab_calendar_event_picture"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.02"></include>
+
+    </LinearLayout>
+
+    </ScrollView>
+    -->
+</LinearLayout>

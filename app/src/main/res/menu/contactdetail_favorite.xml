@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:yourapp="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_share"
+        android:orderInCategory="100"
+        yourapp:showAsAction="always"
+        android:icon="@drawable/ic_share_white_36dp"
+        android:title="share">
+
+        <menu>
+            <item
+                android:id="@+id/action_share_save"
+                android:orderInCategory="100"
+                android:title="Save to Contacts" />
+            <item
+                android:id="@+id/action_share_export"
+                android:orderInCategory="200"
+                android:title="Share" />
+        </menu>
+
+    </item>
+
+    <!--
+    <item
+        android:id="@+id/action_favorite"
+        android:orderInCategory="200"
+        yourapp:showAsAction="always"
+        android:icon="@drawable/ic_star_outline_white_36dp"
+        android:title="favorite">
+    </item>
+    -->
+
+</menu>

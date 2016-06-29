@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="1">
+
+        <GridView
+            android:id="@+id/gridGallery"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:numColumns="@integer/column_count"
+            android:scrollbarStyle="insideOverlay"
+            android:scrollbars="none"
+            android:listSelector="@null"
+            android:verticalSpacing="3dp"
+            android:horizontalSpacing="3dp"
+            tools:listitem="@layout/gallery_item"></GridView>
+
+        <FrameLayout
+            android:id="@+id/frameSelectCount"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/primary"
+            android:layout_gravity="bottom"
+            android:alpha=".9" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Selected (3)"
+                android:id="@+id/textView14"
+                android:layout_gravity="center"
+                android:password="false"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:typeface="sans"
+                android:textColor="@color/text_primary" />
+        </FrameLayout>
+
+    </FrameLayout>
+
+    <!--LinearLayout
+        android:id="@+id/llBottomContainer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <Button
+            android:id="@+id/btnGalleryOk"
+            android:background="@color/primary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/btn_ok"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+    </LinearLayout-->
+
+</LinearLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:yourapp="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/event_menu_preview"
+        android:icon="@drawable/ic_more_vert_white_24dp"
+        android:title="More"
+        yourapp:showAsAction="always">
+
+        <menu>
+            <item
+                android:id="@+id/preview_shared_video"
+                android:icon="@drawable/ic_share_white_36dp"
+                android:orderInCategory="100"
+                android:title="Shared Video" />
+
+            <item
+                android:id="@+id/preview_save_video"
+                android:icon="@drawable/ic_file_download_white_36dp"
+                android:orderInCategory="200"
+                android:title="Save Video" />
+        </menu>
+
+    </item>
+</menu>

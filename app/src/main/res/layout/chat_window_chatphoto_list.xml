@@ -1,0 +1,96 @@
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:orientation="horizontal"
+    android:layout_height="wrap_content"
+    android:weightSum="1"
+    android:baselineAligned="false"
+    android:id="@+id/row_chat_photo_list">
+
+    <!--  ListRow Left sided Thumbnail image -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.AppCompatCheckBox
+            android:layout_marginLeft="8dp"
+            android:button="@drawable/selector_checkbox"
+            android:id="@+id/forward"
+            android:checked="false"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" />
+
+        <ImageView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:id="@+id/userImage"
+            android:src="@drawable/contacts_defaultuserimg_sq"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/forward"
+            android:layout_toEndOf="@+id/forward"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tareef Jafferi"
+            android:id="@+id/username"
+            android:layout_gravity="left|top"
+            android:layout_toRightOf="@+id/userImage"
+            android:layout_toEndOf="@+id/userImage"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            style="@style/UsernameChatRow"/>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:background="@drawable/chatw_whitebubble"
+            android:id="@+id/whiteBubble"
+            android:layout_below="@+id/username"
+            android:layout_toRightOf="@+id/userImage"
+            android:layout_toEndOf="@+id/userImage"
+            android:layout_marginLeft="9dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginRight="40dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:visibility="gone"
+                    android:id="@+id/chat_id" />
+
+                <TextView
+                    android:id="@+id/chat_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/chat_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:scaleType="centerCrop"></ImageView>
+            </FrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11:27"
+            android:id="@+id/chattime"
+            android:layout_gravity="right|top"
+            android:layout_toRightOf="@+id/whiteBubble"
+            android:layout_toEndOf="@+id/whiteBubble"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="-36dp"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentStart="false"
+            style="@style/TimeChatRow"/>
+    </RelativeLayout>
+
+</TableRow>

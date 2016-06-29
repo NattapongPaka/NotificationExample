@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:weightSum="1">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/relativeLayout"
+                android:background="#FFFFFF"
+                android:paddingTop="15dp"
+                android:paddingBottom="20dp">
+
+                <ImageView
+                    android:id="@+id/icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="17dp"
+                    android:src="@drawable/rowicon_task" />
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="47dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/lb_container"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignBottom="@+id/title" />
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#382C2C"
+                    android:typeface="sans"
+                    android:textSize="16dp"
+                    android:textStyle="italic"
+                    android:text="test test"
+                    android:layout_marginLeft="54dp"
+                    android:layout_marginRight="20dp"
+                    android:paddingBottom="5dp" />
+
+                <TextView
+                    android:id="@+id/duefromnow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10dp"
+                    android:textStyle="normal"
+                    android:textColor="#ffff3366"
+                    android:layout_toStartOf="@+id/createdate"
+                    android:text="Due 4 minutes ago"
+                    android:layout_below="@+id/imageView"
+                    android:layout_alignLeft="@+id/title"
+                    android:layout_alignStart="@+id/title" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:paddingTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:textSize="12dp"
+                    android:text="2 COMPLETED TASK"
+                    android:textStyle="normal"
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/textView" />
+
+                <GridLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/grid">
+
+                <GridView
+                    android:id="@+id/GridUserSelect"
+                    android:layout_width="fill_parent"
+                    android:layout_height="60dp"
+                    android:verticalSpacing="1.5dp"
+                    android:horizontalSpacing="1.5dp"
+                    android:numColumns="auto_fit"
+                    android:columnWidth="36dp"
+                    android:stretchMode="columnWidth"
+                    android:gravity="center"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp" />
+                </GridLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:background="#FFFFFF">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:textSize="12dp"
+                    android:text="3 NOT COMPLETED"
+                    android:textStyle="normal"
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/textView2" />
+
+                <GridLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/gridLayout2" >
+
+                    <GridView
+                        android:id="@+id/gridView2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="60dp"
+                        android:verticalSpacing="1.5dp"
+                        android:horizontalSpacing="1.5dp"
+                        android:numColumns="auto_fit"
+                        android:columnWidth="36dp"
+                        android:stretchMode="columnWidth"
+                        android:gravity="center"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp" />
+                </GridLayout>
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:id="@+id/border"
+                android:focusableInTouchMode="false"
+                android:background="#DDDDDD" />
+
+            <include layout="@layout/tr_comment_container" ></include>
+
+            <android.support.v4.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp">
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/row_comment">
+
+                    <include layout="@layout/tr_comment"></include>
+                </TableLayout>
+            </android.support.v4.widget.NestedScrollView>
+
+        </LinearLayout>
+
+    </TableRow>
+</android.support.v4.widget.NestedScrollView>
+</LinearLayout>

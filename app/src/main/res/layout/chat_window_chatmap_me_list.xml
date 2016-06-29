@@ -1,0 +1,152 @@
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/row_chat_map_me_list"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:baselineAligned="false"
+    android:orientation="horizontal"
+    android:weightSum="1">
+
+    <!--  ListRow Left sided Thumbnail image -->
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        >
+
+    <android.support.v7.widget.AppCompatCheckBox
+        android:layout_weight="0.1"
+        android:layout_marginLeft="8dp"
+        android:button="@drawable/selector_checkbox"
+        android:id="@+id/forward"
+        android:checked="false"
+        android:visibility="gone"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="top"
+        android:layout_marginTop="5dp" />
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.9">
+
+        <FrameLayout
+            android:id="@+id/yellowBubble"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="right"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="3dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/chatw_yellowbubble">
+
+            <TextView
+                android:id="@+id/chat_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/chat_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="3dp">
+
+                <ImageView
+                    android:id="@+id/share_icon"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:paddingTop="3dp"
+                    android:src="@drawable/icon_map" />
+
+                <TextView
+                    android:id="@+id/chatmap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:autoLink="none"
+                    android:paddingBottom="1dp"
+                    android:paddingLeft="6dp"
+                    android:paddingRight="3dp"
+                    android:paddingTop="2dp"
+                    android:shadowColor="#65FFFFFF"
+                    android:singleLine="false"
+                    android:text=""
+                    android:textColor="#333333"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/chattime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/yellowBubble"
+            android:layout_gravity="left"
+            android:layout_marginRight="-55dp"
+            android:layout_marginTop="5dp"
+            android:layout_toLeftOf="@+id/yellowBubble"
+            android:text="11:27"
+            android:visibility="visible"
+            style="@style/TimeChatRow"/>
+
+        <ImageView
+            android:id="@+id/read_user"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_alignTop="@+id/chattime"
+            android:layout_gravity="left"
+            android:layout_marginRight="5dp"
+            android:layout_toEndOf="@+id/chattime"
+            android:layout_toLeftOf="@+id/chattime"
+            android:singleLine="true"
+            android:src="@drawable/check"
+            android:visibility="gone" />
+
+
+        <TextView
+            android:id="@+id/read_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/yellowBubble"
+            android:layout_gravity="left"
+            android:layout_marginRight="-55dp"
+            android:layout_marginTop="20dp"
+            android:layout_toLeftOf="@+id/yellowBubble"
+            android:singleLine="true"
+            android:text="Read by 1"
+            android:textColor="@color/text_gray"
+            android:textSize="11sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/chattime_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/yellowBubble"
+            android:layout_gravity="left"
+            android:layout_marginRight="-55dp"
+            android:layout_marginTop="5dp"
+            android:layout_toLeftOf="@+id/yellowBubble"
+            android:singleLine="true"
+            android:text="11:27"
+            android:textColor="@color/text_gray"
+            android:textSize="11sp"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+    </LinearLayout>
+</TableRow>

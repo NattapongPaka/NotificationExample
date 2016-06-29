@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:yourapp="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_refresh"
+        yourapp:showAsAction="always"
+        android:icon="@drawable/ic_mode_edit_white_36dp"
+        android:title="edit">
+<!--
+        <menu>
+            <item
+                android:id="@+id/action_editprofile"
+                android:orderInCategory="100"
+                android:title="Edit Profile"
+                android:onClick="edit" />
+            <item
+                android:id="@+id/action_settings"
+                android:orderInCategory="200"
+                android:title="My Settings"
+                android:onClick="setting" />
+        </menu>
+-->
+    </item>
+
+</menu>
