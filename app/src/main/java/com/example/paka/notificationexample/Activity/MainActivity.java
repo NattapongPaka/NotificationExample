@@ -5,7 +5,6 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.RingtoneManager;
@@ -75,13 +74,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         group_id = String.valueOf(mNotificationId);
         group_name = "Title DHAS";
         bitmapLargeIcon = BitmapFactory.decodeResource(getResources(),R.drawable.appicon);
-
     }
 
     private void generateNotificationMoreThenN(){
         final String KEY_TEXT_REPLY = "key_text_reply";
         //int notificationId = 200;
-        Intent intent = new Intent(mContext, ChatDialog.class);
+        Intent intent = new Intent(mContext, ReplyDialogActivity.class);
         intent.putExtra("notificationID", mNotificationId);
         intent.putExtra("group_id", group_id);
         intent.putExtra("title", group_name);
@@ -125,7 +123,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void generateNotificationLessThenN(){
-        Intent intent = new Intent(mContext, ChatDialog.class);
+        Intent intent = new Intent(mContext, ReplyDialogActivity.class);
         intent.putExtra("notificationID", mNotificationId);
         intent.putExtra("group_id", group_id);
         intent.putExtra("title", group_name);

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@color/white">
 
     <LinearLayout
@@ -17,6 +17,7 @@
             android:layout_marginLeft="16dp">
 
             <ImageView
+                android:id="@+id/imgTitle"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
                 android:src="@drawable/defaultuserimg_sq"
@@ -46,9 +47,10 @@
                 android:src="@drawable/ic_radio_button_unchecked_white_24dp"
                 android:layout_gravity="center"/>
             <TextView
+                android:id="@+id/txtCountMessage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="9"
+                android:text="0"
                 android:textStyle="bold"
                 android:textSize="14sp"
                 android:textColor="@color/white"

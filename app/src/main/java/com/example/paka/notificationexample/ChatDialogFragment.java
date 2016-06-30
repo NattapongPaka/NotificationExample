@@ -82,10 +82,10 @@ public class ChatDialogFragment extends DialogFragment implements View.OnClickLi
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         LayoutInflater inflater = (getActivity()).getLayoutInflater();
         View view = inflater.inflate(R.layout.notification_box,null);
-        AlertDialog.Builder mBuilder = new AlertDialog.Builder(getActivity());
-        mBuilder.setView(view);
-        initViewDialog(getView());
-        return mBuilder.create();
+        AlertDialog.Builder m = new AlertDialog.Builder(getActivity());
+        m.setView(view);
+        initViewDialog(view);
+        return m.create();
     }
 
     private void initViewDialog(View v) {
