@@ -1,4 +1,4 @@
-package com.example.paka.notificationexample.Activity;
+package com.example.paka.myfirebasedemo.activity;
 
 /**
  * Created by Noth on 29/6/2559.

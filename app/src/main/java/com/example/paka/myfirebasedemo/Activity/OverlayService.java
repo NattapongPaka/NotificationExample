@@ -1,4 +1,4 @@
-package com.example.paka.notificationexample.Activity;
+package com.example.paka.myfirebasedemo.activity;
 
 import android.app.Service;
 import android.content.BroadcastReceiver;
@@ -8,19 +8,15 @@ import android.content.IntentFilter;
 import android.graphics.PixelFormat;
 import android.os.Binder;
 import android.os.IBinder;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageButton;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
-import com.example.paka.notificationexample.R;
+import com.example.paka.myfirebasedemo.R;
+
 
 /**
  * Created by Noth on 29/6/2559.
@@ -59,6 +55,7 @@ public class OverlayService extends Service {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
         alertDialog.setView(mView);
         alertDialog.create().show();
+
 //        RelativeLayout dialog = (RelativeLayout) mView.findViewById(R.id.dialog);
 //        WindowManager.LayoutParams lp = (WindowManager.LayoutParams) dialog.getLayoutParams();
 //        lp.topMargin = top;

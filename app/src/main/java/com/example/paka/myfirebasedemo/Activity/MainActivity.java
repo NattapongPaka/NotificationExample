@@ -1,22 +1,24 @@
-package com.example.paka.notificationexample.Activity;
+package com.example.paka.myfirebasedemo.activity;
 
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.RingtoneManager;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.RemoteInput;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.paka.notificationexample.R;
-import com.example.paka.notificationexample.Utily.Utily;
+
 
 import java.util.Random;
 
@@ -32,6 +34,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private String group_name;
     private int color;
     private Bitmap bitmapLargeIcon;
+
+    private String ACTION_DIALOG_START = "com.intent.action.start_dialog";
+    private String ACTION_DIALOG_HIDDEN = "com.intent.action.hidden_dialog";
+    private String TAG = MainActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,18 +56,53 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btnAdd:
-                mockupDataNotification();
-                if(Utily.isAndroidVersionN()){
-                    generateNotificationMoreThenN();
+//                mockupDataNotification();
+//                if(Util.isAndroidVersionN()){
+//                    generateNotificationMoreThenN();
+//                }else{
+//                    generateNotificationLessThenN();
+//                }
+//                finish();
+                if(getPreference("ReplyDialogServiceStart").equals("onCreate") && getPreference("ReplyDialogServiceStart") != null){
+                    Intent intent = new Intent();
+                    intent.setAction(ACTION_DIALOG_START);
+                    sendBroadcast(intent);
+                    Log.i(TAG,"SendBroadcast");
                 }else{
-                    generateNotificationLessThenN();
+                    Log.i(TAG,"StartService");
+                    startService(new Intent(this,ReplyDialogService.class));
                 }
-                finish();
+
                 break;
 
             case R.id.btnRemove:
+                Log.i(TAG,"PreferenceRemove");
+                setPreference("Remove");
                 break;
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        try{
+            setPreference("onDestroy");
+            stopService(new Intent(this,ReplyDialogService.class));
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+        super.onDestroy();
+    }
+
+    private String getPreference(String key){
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        return preferences.getString(key,"");
+    }
+
+    private void setPreference(String key){
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        SharedPreferences.Editor mEditor = preferences.edit();
+        mEditor.putString("ReplyDialogServiceStart",key);
+        mEditor.apply();
     }
 
     private void mockupDataNotification(){
