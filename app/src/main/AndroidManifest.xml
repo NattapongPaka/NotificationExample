@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 
     <application
+        android:name=".activity.MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -24,6 +25,8 @@
             android:name=".activity.ReplyDialogActivity"
             android:theme="@style/Theme.AppCompat.Translucent"
             />
+
+        <service android:name=".activity.ReplyDialogService"/>
 
         <service
             android:name=".firebase.MyFirebaseMessagingService">
