@@ -1,4 +1,4 @@
-package com.example.paka.myfirebasedemo;
+package com.example.paka.myfirebasedemo.fragment;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -26,6 +26,7 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.example.paka.myfirebasedemo.R;
 import com.example.paka.myfirebasedemo.activity.MyInterface;
 import com.example.paka.myfirebasedemo.activity.MyModel;
 

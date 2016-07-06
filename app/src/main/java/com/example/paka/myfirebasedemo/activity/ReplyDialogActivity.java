@@ -18,7 +18,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 
-import com.example.paka.myfirebasedemo.ReplyDialogFragment;
+import com.example.paka.myfirebasedemo.fragment.ReplyDialogFragment;
 import com.example.paka.myfirebasedemo.util.Util;
 
 /**
