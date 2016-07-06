@@ -1,4 +1,4 @@
-package com.example.paka.notificationexample;
+package com.example.paka.myfirebasedemo;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

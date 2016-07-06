@@ -1,13 +1,11 @@
-package com.example.paka.notificationexample;
+package com.example.paka.myfirebasedemo;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.view.PagerAdapter;
@@ -28,9 +26,8 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.example.paka.notificationexample.Activity.MyInterface;
-import com.example.paka.notificationexample.Activity.MyModel;
-import com.example.paka.notificationexample.Activity.ReplyDialogActivity;
+import com.example.paka.myfirebasedemo.activity.MyInterface;
+import com.example.paka.myfirebasedemo.activity.MyModel;
 
 import java.util.ArrayList;
 import java.util.Random;
