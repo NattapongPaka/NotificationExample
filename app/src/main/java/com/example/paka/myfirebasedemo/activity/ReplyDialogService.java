@@ -27,7 +27,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 
-
+import com.example.paka.myfirebasedemo.R;
 
 import java.util.Random;
 
