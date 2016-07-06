@@ -1,15 +1,12 @@
 package com.example.paka.myfirebasedemo.util;
 
 import android.app.ActivityManager;
-import android.app.Application;
 import android.app.KeyguardManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.preference.PreferenceManager;
 import android.util.Log;
-
-import com.example.paka.myfirebasedemo.activity.MyApp;
 
 /**
  * Created by Noth on 29/6/2559.
