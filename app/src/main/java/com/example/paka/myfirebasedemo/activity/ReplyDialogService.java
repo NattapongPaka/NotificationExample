@@ -6,14 +6,21 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.graphics.PixelFormat;
+import android.graphics.drawable.GradientDrawable;
 import android.os.IBinder;
+import android.os.PowerManager;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.text.Layout;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -25,6 +32,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.example.paka.myfirebasedemo.R;
@@ -58,6 +66,7 @@ public class ReplyDialogService extends Service implements View.OnClickListener 
     //private ArrayList<JsonNotification> notificationArrayList = new ArrayList<>();
     private String TAG = ReplyDialogService.class.getSimpleName();
     private View mView;
+    private View mViewToast;
 
     private String ACTION_DIALOG_START = "com.intent.action.start_dialog";
     private String ACTION_DIALOG_HIDDEN = "com.intent.action.hidden_dialog";
@@ -126,7 +135,6 @@ public class ReplyDialogService extends Service implements View.OnClickListener 
 
     @Override
     public void onDestroy() {
-
         // remove `mView` from the window
         //removeViewFromWindow();
         removeNow();
@@ -185,6 +193,8 @@ public class ReplyDialogService extends Service implements View.OnClickListener 
         WindowManager mWindowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
         LayoutInflater mInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
+        Toast mToast = Toast.makeText(getBaseContext(),"onCreate", Toast.LENGTH_LONG);
+        mToast.setGravity(Gravity.BOTTOM,0,0);
         // inflate required layout file
         mView = mInflater.inflate(R.layout.notification_box, null);
         mView.setTag(TAG);
@@ -204,8 +214,51 @@ public class ReplyDialogService extends Service implements View.OnClickListener 
 
         // finally, add the view to window
         mWindowManager.addView(mView, mLayoutParams);
+
         initViewDialog(mView);
         setPreference("onCreate");
+    }
+
+    private void showToast() {
+//        WindowManager mWindowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
+//        LayoutInflater mInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+//
+//        Toast mToast = Toast.makeText(getApplicationContext(), "Test", Toast.LENGTH_LONG);
+//        mToast.show();
+//
+//        WindowManager.LayoutParams params = new WindowManager.LayoutParams(
+//                ViewGroup.LayoutParams.WRAP_CONTENT,
+//                ViewGroup.LayoutParams.WRAP_CONTENT, 0, 0,
+//                WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY,
+//                WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
+//                        | WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD
+//                        | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON
+//                        | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON,
+//                PixelFormat.TRANSPARENT);
+//
+//        params.gravity = Gravity.CENTER | Gravity.TOP;
+//        //params.setTitle("Load Average");
+//
+//        WindowManager wm = (WindowManager) getSystemService(WINDOW_SERVICE);
+//        wm.addView(mToast.getView().getRootView(), params);
+        Toast.makeText(getBaseContext(),"onCreate", Toast.LENGTH_LONG).show();
+        mViewToast = new HUDView(this);
+        WindowManager.LayoutParams params = new WindowManager.LayoutParams(
+                WindowManager.LayoutParams.WRAP_CONTENT,
+                WindowManager.LayoutParams.WRAP_CONTENT,
+                WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY,
+                WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
+                        | WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD
+                        | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON
+                        | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON,
+//              WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
+//                      | WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                PixelFormat.TRANSLUCENT);
+        params.gravity = Gravity.RIGHT | Gravity.TOP;
+        params.setTitle("Load Average");
+        WindowManager wm = (WindowManager) getSystemService(WINDOW_SERVICE);
+        wm.addView(mViewToast, params);
+
     }
 
     @Override
@@ -219,6 +272,8 @@ public class ReplyDialogService extends Service implements View.OnClickListener 
                 String chat_id = String.valueOf(r.nextInt(9999999));
                 String message = "Test";
                 Log.i(TAG," "+messageValue+" "+chat_id+" "+message);
+
+                showToast();
                 //mockupDataSamplePager(10);
                 //messageManager.sendMessageToServer(messageValue,lat,lng,chat_id,group_id,title);
                 break;
@@ -282,7 +337,7 @@ public class ReplyDialogService extends Service implements View.OnClickListener 
         registerReceiver(onBroadcastReceiver,mIntentFilter);
     }
 
-    BroadcastReceiver onBroadcastReceiver = new BroadcastReceiver() {
+    private BroadcastReceiver onBroadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             if(intent != null) {
@@ -408,6 +463,38 @@ public class ReplyDialogService extends Service implements View.OnClickListener 
         @Override
         public boolean isViewFromObject(View view, Object object) {
             return view == object;
+        }
+    }
+
+    private class HUDView extends ViewGroup {
+        private Paint mLoadPaint;
+
+        public HUDView(Context context) {
+            super(context);
+            Toast.makeText(getContext(),"HUDView", Toast.LENGTH_LONG).show();
+
+            mLoadPaint = new Paint();
+            mLoadPaint.setAntiAlias(true);
+            mLoadPaint.setTextSize(10);
+            mLoadPaint.setARGB(255, 255, 0, 0);
+        }
+
+        @Override
+        protected void onDraw(Canvas canvas) {
+            super.onDraw(canvas);
+            canvas.drawText("Hello World", 5, 15, mLoadPaint);
+        }
+
+        @Override
+        protected void onLayout(boolean arg0, int arg1, int arg2, int arg3, int arg4) {
+            Toast.makeText(getContext(),"onTouchEvent", Toast.LENGTH_LONG).show();
+        }
+
+        @Override
+        public boolean onTouchEvent(MotionEvent event) {
+            //return super.onTouchEvent(event);
+            Toast.makeText(getContext(),"onTouchEvent", Toast.LENGTH_LONG).show();
+            return true;
         }
     }
 }

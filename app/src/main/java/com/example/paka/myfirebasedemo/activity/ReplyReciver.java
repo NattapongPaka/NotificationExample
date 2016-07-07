@@ -17,6 +17,7 @@ public class ReplyReciver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         if (!Util.isMyServiceRunning(ReplyDialogService.class, context)) {
             Timber.d("isMyService_NotRunning");
+            Timber.d("isAction== '%s'", intent.getAction());
             if (intent.getAction().equals(Intent.ACTION_BOOT_COMPLETED)) {
                 Timber.d("ACTION_BOOT_COMPLETED");
             } else if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) {

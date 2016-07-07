@@ -1,4 +1,9 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'android-apt'
+def AAVersion = '3.3.2' // change this to your desired version, for example the latest stable: 3.3.2
+
+
 
 android {
     compileSdkVersion 24
@@ -11,6 +16,7 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -26,6 +32,10 @@ dependencies {
     compile 'com.afollestad.material-dialogs:commons:0.8.6.1'
     compile 'com.google.firebase:firebase-messaging:9.0.2'
     compile 'com.jakewharton.timber:timber:4.1.1'
+
+    apt "org.androidannotations:androidannotations:$AAVersion"
+    compile "org.androidannotations:androidannotations-api:$AAVersion"
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha3'
 }
 
 
