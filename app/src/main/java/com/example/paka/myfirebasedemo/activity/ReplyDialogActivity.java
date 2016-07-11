@@ -7,10 +7,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.RemoteInput;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -18,8 +16,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 
-import com.example.paka.myfirebasedemo.fragment.ReplyDialogFragment;
 import com.example.paka.myfirebasedemo.util.Util;
+
+import timber.log.Timber;
 
 /**
  * Created by Noth on 21/6/2559.
@@ -44,6 +43,7 @@ public class ReplyDialogActivity extends AppCompatActivity implements MyInterfac
         String in_group_id = getIntent().getStringExtra("group_id");
         String in_title = getIntent().getStringExtra("title");
         in_mNotificationID = getIntent().getIntExtra("notificationID", -1);
+
         try {
             Log.i("ReplyDialogActivity", "GroupID : " + in_group_id + " :Title: " + in_title + " : " + String.valueOf(in_mNotificationID));
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -63,18 +63,18 @@ public class ReplyDialogActivity extends AppCompatActivity implements MyInterfac
             /**
              * Set theme transparent no action bar
              */
-            getWindow().getDecorView().setBackgroundColor(Color.BLACK);
-//            Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
-//            ActionBar mActionBar = getSupportActionBar();
-//            if (mToolbar != null && mActionBar != null) {
-//                setSupportActionBar(mToolbar);
-//                mActionBar.setDisplayShowCustomEnabled(true);
-//                mActionBar.setDisplayHomeAsUpEnabled(true);
-//                mToolbar.setTitle(in_title);
-//            }
-            DialogFragment dialogFragment = ReplyDialogFragment.newInstance(title, group_id, cal_id);
-            dialogFragment.setCancelable(false);
-            dialogFragment.show(getSupportFragmentManager(),"ReplyDialogFragment");
+//            getWindow().getDecorView().setBackgroundColor(Color.BLACK);
+////            Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
+////            ActionBar mActionBar = getSupportActionBar();
+////            if (mToolbar != null && mActionBar != null) {
+////                setSupportActionBar(mToolbar);
+////                mActionBar.setDisplayShowCustomEnabled(true);
+////                mActionBar.setDisplayHomeAsUpEnabled(true);
+////                mToolbar.setTitle(in_title);
+////            }
+//            DialogFragment dialogFragment = ReplyDialogFragment.newInstance(title, group_id, cal_id);
+//            dialogFragment.setCancelable(false);
+//            dialogFragment.show(getSupportFragmentManager(),"ReplyDialogFragment");
         } else {
             /**
              * Android API 24 more then
@@ -82,6 +82,8 @@ public class ReplyDialogActivity extends AppCompatActivity implements MyInterfac
             try {
                 Bundle remoteInput = RemoteInput.getResultsFromIntent(getIntent());
                 CharSequence msgResult = remoteInput.getCharSequence("key_text_reply");
+                Timber.d("Message : '%s'",msgResult);
+                Timber.d("Message : '%s' '%s' '%d'",in_group_id,in_title,in_mNotificationID);
                 if (msgResult != null && msgResult.length() > 0) {
 //                    Random r = new Random();
 //                    String messageValue = "";
@@ -99,7 +101,7 @@ public class ReplyDialogActivity extends AppCompatActivity implements MyInterfac
             }
             NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
             notificationManager.cancel(in_mNotificationID);
-            //finish();
+            finish();
         }
         registerInteneFilter();
         MyInterface.getInstance().setOnMyInstanceChangerListener(this);

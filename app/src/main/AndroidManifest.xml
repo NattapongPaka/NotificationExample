@@ -23,21 +23,25 @@
             </intent-filter>
         </activity>
 
+        <!--<activity-->
+            <!--android:name=".activity.ReplyDialogActivity"-->
+            <!--android:theme="@style/Theme.AppCompat.Translucent"-->
+            <!--/>-->
+
         <activity
-            android:name=".activity.ReplyDialogActivity"
-            android:theme="@style/Theme.AppCompat.Translucent"
-            />
+            android:name=".activity.ReplyDialogActivity"/>
 
-        <service android:name=".activity.ReplyDialogService"/>
+        <service
+            android:name=".activity.ReplyDialogService"
+            android:enabled="true"
+            android:exported="false"/>
 
-        <receiver android:name=".activity.ReplyReciver">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <action android:name="android.intent.action.SCREEN_OFF"/>
-                <action android:name="android.intent.action.USER_PRESENT"/>
-                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED"/>
-            </intent-filter>
-        </receiver>
+
+
+        <receiver
+            android:name=".activity.ReplyReciver"
+            android:enabled="true"
+            android:exported="false"/>
 
         <service
             android:name=".firebase.MyFirebaseMessagingService">

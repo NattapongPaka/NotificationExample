@@ -5,6 +5,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -18,8 +19,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-
 import com.example.paka.myfirebasedemo.R;
+import com.example.paka.myfirebasedemo.util.Util;
 
 import java.util.Random;
 
@@ -40,6 +41,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private String ACTION_DIALOG_HIDDEN = "com.intent.action.hidden_dialog";
     private String TAG = MainActivity.class.getSimpleName();
 
+    private ReplyReciver mReplyReciver = new ReplyReciver();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,23 +60,42 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btnAdd:
-//                mockupDataNotification();
+                mockupDataNotification();
 //                if(Util.isAndroidVersionN()){
 //                    generateNotificationMoreThenN();
 //                }else{
 //                    generateNotificationLessThenN();
 //                }
 //                finish();
-                if(getPreference("ReplyDialogServiceStart").equals("onCreate") && getPreference("ReplyDialogServiceStart") != null){
-                    Intent intent = new Intent();
-                    intent.setAction(ACTION_DIALOG_START);
-                    sendBroadcast(intent);
-                    Log.i(TAG,"SendBroadcast");
+
+//                if(getPreference("ReplyDialogServiceStart").equals("onCreate") && getPreference("ReplyDialogServiceStart") != null){
+//                    Intent intent = new Intent();
+//                    intent.setAction(ACTION_DIALOG_START);
+//                    sendBroadcast(intent);
+//                    Log.i(TAG,"SendBroadcast");
+//                }else{
+//                    Log.i(TAG,"StartService");
+//                    startService(new Intent(this,ReplyDialogService.class));
+//                }
+
+                if(Util.isAndroidVersionN()){
+                    generateNotificationMoreThenN();
                 }else{
-                    Log.i(TAG,"StartService");
-                    startService(new Intent(this,ReplyDialogService.class));
+                    if(!Util.isMyServiceRunning(ReplyDialogService.class,MainActivity.this)){
+                        startService(new Intent(this,ReplyDialogService.class));
+                    }else {
+                        Intent intent = new Intent();
+                        intent.setAction(ACTION_DIALOG_START);
+                        mContext.sendBroadcast(intent);
+                    }
                 }
 
+//                if(Util.isMyServiceRunning(ReplyDialogService.class,MainActivity.this)){
+//                    generateNotificationMoreThenN();
+//                }else {
+//                    //generateNotificationMoreThenN();
+//                    startService(new Intent(this,ReplyDialogService.class));
+//                }
                 break;
 
             case R.id.btnRemove:
@@ -84,9 +106,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        IntentFilter mIntentFilter = new IntentFilter();
+        mIntentFilter.addAction(ACTION_DIALOG_START);
+        registerReceiver(mReplyReciver,mIntentFilter);
+
+    }
+
+    @Override
     protected void onDestroy() {
         try{
             setPreference("onDestroy");
+            unregisterReceiver(mReplyReciver);
             stopService(new Intent(this,ReplyDialogService.class));
         }catch (Exception ex){
             ex.printStackTrace();
@@ -126,24 +158,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         intent.putExtra("group_id", group_id);
         intent.putExtra("title", group_name);
         intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
         PendingIntent mPendingIntentChatDialog = PendingIntent.getActivity(mContext, mNotificationId, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+        //PendingIntent mPendingIntentChatDialog = PendingIntent.getService(mContext, mNotificationId, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+        //ReplyIntentService mReplyIntentService = new ReplyIntentService("intentService",mContext);
+
+//        Intent intent1 = new Intent(mContext,intentService.getClass());
+//        intent.putExtra("Test","TestValue");
+//        intent.putExtra("Test2","TestValue2");
+//        intent.setAction(ACTION_DIALOG_START);
+//        intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+//        PendingIntent mPendingIntent = PendingIntent.getService(mContext,1000,intent1,PendingIntent.FLAG_CANCEL_CURRENT);
 
         String replyLabel = "Reply message";
         RemoteInput remoteInput = new RemoteInput.Builder(KEY_TEXT_REPLY)
                 .setLabel(replyLabel)
+                //.setAllowFreeFormInput(true)
                 .build();
 
         NotificationCompat.Action action = new NotificationCompat.Action.Builder(R.drawable.ic_reply_grey_600_48dp,
                 "Reply", mPendingIntentChatDialog)
                 .addRemoteInput(remoteInput)
+                //.setAllowGeneratedReplies(true)
                 .build();
 
-        // Build the notification and add the action
+        //Build the notification and add the action
         Notification newMessageNotification = new NotificationCompat.Builder(mContext)
                 .setAutoCancel(true)
                 .setContentTitle(mContext.getResources().getString(R.string.app_name))
                 //.setStyle(inboxStyle)
-                .setContentIntent(resultPendingIntent)
+                //.setContentIntent(resultPendingIntent)
                 .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
                 .setContentText(_message)
                 .setGroup("DHAS")
@@ -155,7 +199,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .setDefaults(Notification.DEFAULT_ALL)
                 .addAction(action)
                 .build();
-
         try {
             NotificationManager notificationManager = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
             notificationManager.notify(mNotificationId, newMessageNotification);
@@ -186,7 +229,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .setGroupSummary(true)
                 .setPriority(Notification.PRIORITY_HIGH)
                 .setDefaults(Notification.DEFAULT_ALL)
-                .addAction(R.drawable.ic_reply_grey_600_48dp, "Reply", mPendingIntentChatDialog)
+                //.addAction(R.drawable.ic_reply_grey_600_48dp, "Reply", mPendingIntentChatDialog)
                 .build();
         try {
             NotificationManager notificationManager = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);

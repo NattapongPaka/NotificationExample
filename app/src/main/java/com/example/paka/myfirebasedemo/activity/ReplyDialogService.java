@@ -9,14 +9,15 @@ import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
-import android.graphics.drawable.GradientDrawable;
+import android.os.Bundle;
 import android.os.IBinder;
-import android.os.PowerManager;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.RemoteInput;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.text.Layout;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -34,8 +35,8 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import com.example.paka.myfirebasedemo.R;
+import com.example.paka.myfirebasedemo.util.Util;
 
 import java.util.Random;
 
@@ -62,6 +63,9 @@ public class ReplyDialogService extends Service implements View.OnClickListener 
     private SamplePager samplePager;
     private ImageView imgTitle;
     private TextView txtCountMessage;
+//    private FloatingActionButton fabSend;
+//    private FloatingActionButton fabDone;
+
 
     //private ArrayList<JsonNotification> notificationArrayList = new ArrayList<>();
     private String TAG = ReplyDialogService.class.getSimpleName();
@@ -70,6 +74,7 @@ public class ReplyDialogService extends Service implements View.OnClickListener 
 
     private String ACTION_DIALOG_START = "com.intent.action.start_dialog";
     private String ACTION_DIALOG_HIDDEN = "com.intent.action.hidden_dialog";
+    private CoordinatorLayout coordinatorLayout;
 
     @Nullable
     @Override
@@ -129,7 +134,9 @@ public class ReplyDialogService extends Service implements View.OnClickListener 
 //        initViewDialog(mView);
 //        registerIntentFilter();
         setPreference("onCreate");
-        showDialog();
+        if(Util.isLockScreen()) {
+            showDialog();
+        }
         //IReplyDialogActivity.getInstance().setActivityIsRunning(true);
     }
 
@@ -151,10 +158,16 @@ public class ReplyDialogService extends Service implements View.OnClickListener 
     }
 
     private void initViewDialog(View v) {
+
+
         //Edit  Text
         edtSendMessageNotification_Box = (EditText) v.findViewById(R.id.edtSendMessageNotification_Box);
         //Button & Image Button
         btnSendMessage = (ImageButton) v.findViewById(R.id.btnSendMessage);
+
+
+
+
         btnPrevious = (ImageButton) v.findViewById(R.id.btnPrevious);
         btnNext = (ImageButton) v.findViewById(R.id.btnNext);
         btnClose = (Button) v.findViewById(R.id.btnClose);
@@ -174,6 +187,7 @@ public class ReplyDialogService extends Service implements View.OnClickListener 
         viewPager.setAdapter(samplePager);
         //Button Register Listener
         btnSendMessage.setOnClickListener(this);
+
         btnPrevious.setOnClickListener(this);
         btnNext.setOnClickListener(this);
         btnClose.setOnClickListener(this);
@@ -193,8 +207,6 @@ public class ReplyDialogService extends Service implements View.OnClickListener 
         WindowManager mWindowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
         LayoutInflater mInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        Toast mToast = Toast.makeText(getBaseContext(),"onCreate", Toast.LENGTH_LONG);
-        mToast.setGravity(Gravity.BOTTOM,0,0);
         // inflate required layout file
         mView = mInflater.inflate(R.layout.notification_box, null);
         mView.setTag(TAG);
@@ -273,7 +285,7 @@ public class ReplyDialogService extends Service implements View.OnClickListener 
                 String message = "Test";
                 Log.i(TAG," "+messageValue+" "+chat_id+" "+message);
 
-                showToast();
+                //showToast();
                 //mockupDataSamplePager(10);
                 //messageManager.sendMessageToServer(messageValue,lat,lng,chat_id,group_id,title);
                 break;
@@ -342,6 +354,11 @@ public class ReplyDialogService extends Service implements View.OnClickListener 
         public void onReceive(Context context, Intent intent) {
             if(intent != null) {
                 Log.i(TAG, "Action : " + intent.getAction());
+                Bundle mBundle = intent.getExtras();
+                if(mBundle != null){
+                    Log.i(TAG, "String : " + intent.getExtras().toString());
+                }
+
                 if (intent.getAction().equals(ACTION_DIALOG_START)) {
                     showDialog();
                 } else if (intent.getAction().equals(ACTION_DIALOG_HIDDEN)) {
@@ -350,6 +367,32 @@ public class ReplyDialogService extends Service implements View.OnClickListener 
             }
         }
     };
+
+//    private String getMessageNotification(String version,Intent intent){
+//        if(Build.VERSION.SDK_INT == Build.VERSION_CODES.N){
+//            try {
+//                Bundle remoteInput = RemoteInput.getResultsFromIntent(intent.getIntent());
+//                CharSequence msgResult = remoteInput.getCharSequence("key_text_reply");
+//                if (msgResult != null && msgResult.length() > 0) {
+////                    Random r = new Random();
+////                    String messageValue = "";
+////                    String lat = "";
+////                    String lng = "";
+////                    String chat_id = String.valueOf(r.nextInt(9999999));
+////                    MessageManager messageManager = new MessageManager(this);
+////                    messageManager.sendMessageToServer(messageValue, lat, lng, chat_id, group_id, title);
+//                    Log.i("ReplyDialogActivity", "MSG : " + msgResult.toString());
+//                } else {
+//                    Log.i("ReplyDialogActivity", "MSG Length == 0");
+//                }
+//            } catch (NullPointerException ex) {
+//                ex.printStackTrace();
+//            }
+//        }else {
+//
+//        }
+//    }
+
 
 //    /**
 //     *

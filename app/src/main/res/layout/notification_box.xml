@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white">
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,49 +16,50 @@
 
         <FrameLayout
             android:layout_width="0dp"
-            android:layout_weight="4.5"
             android:layout_height="match_parent"
-            android:layout_marginLeft="16dp">
+            android:layout_marginLeft="16dp"
+            android:layout_weight="4.5">
 
             <ImageView
                 android:id="@+id/imgTitle"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
-                android:src="@drawable/defaultuserimg_sq"
-                android:layout_gravity="center_vertical" />
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/defaultuserimg_sq"/>
 
             <TextView
+                android:id="@+id/txtGroupTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:layout_marginLeft="50dp"
                 android:text="TEST GROUP"
-                android:textStyle="bold"
-                android:textSize="16sp"
                 android:textColor="@color/white"
-                android:layout_gravity="center_vertical"
-                android:id="@+id/txtGroupTitle"/>
+                android:textSize="16sp"
+                android:textStyle="bold"/>
 
         </FrameLayout>
 
         <FrameLayout
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
             <ImageView
                 android:layout_width="36dp"
                 android:layout_height="36dp"
-                android:src="@drawable/ic_radio_button_unchecked_white_24dp"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:src="@drawable/ic_radio_button_unchecked_white_24dp"/>
+
             <TextView
                 android:id="@+id/txtCountMessage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="0"
-                android:textStyle="bold"
-                android:textSize="14sp"
                 android:textColor="@color/white"
-                android:layout_gravity="center" />
+                android:textSize="14sp"
+                android:textStyle="bold"/>
 
         </FrameLayout>
 
@@ -69,42 +74,45 @@
 
         <FrameLayout
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
             <ImageButton
                 android:id="@+id/btnPrevious2"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
+                android:layout_gravity="center"
                 android:background="@android:color/transparent"
                 android:contentDescription="Previous"
-                android:src="@drawable/ic_keyboard_arrow_left_black_24dp"
-                android:layout_gravity="center" />
+                android:src="@drawable/ic_keyboard_arrow_left_black_24dp"/>
         </FrameLayout>
 
         <FrameLayout
             android:layout_width="0dp"
-            android:layout_weight="4"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_weight="4">
+
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
-                android:src="@drawable/chat_image" />
+                android:src="@drawable/chat_image"/>
 
         </FrameLayout>
 
         <FrameLayout
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
             <ImageButton
                 android:id="@+id/btnNext2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:background="@android:color/transparent"
                 android:contentDescription="Next"
-                android:src="@drawable/ic_keyboard_arrow_right_black_24dp"
-                android:layout_gravity="center" />
+                android:src="@drawable/ic_keyboard_arrow_right_black_24dp"/>
         </FrameLayout>
 
     </LinearLayout>
@@ -118,16 +126,17 @@
 
         <FrameLayout
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent">
-                <ImageButton
-                    android:id="@+id/btnPrevious"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:background="@android:color/transparent"
-                    android:contentDescription="Previous"
-                    android:src="@drawable/ic_keyboard_arrow_left_black_24dp"
-                    android:layout_gravity="center" />
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageButton
+                android:id="@+id/btnPrevious"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:contentDescription="Previous"
+                android:src="@drawable/ic_keyboard_arrow_left_black_24dp"/>
         </FrameLayout>
 
         <android.support.v4.view.ViewPager
@@ -137,45 +146,45 @@
             android:layout_weight="4">
 
             <!--<FrameLayout-->
-                <!--android:id="@+id/frameContent"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="match_parent"-->
-                <!--&gt;-->
-                <!--<ScrollView-->
-                    <!--android:id="@+id/textAreaScroller"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="match_parent"-->
-                    <!--android:scrollbars="vertical">-->
+            <!--android:id="@+id/frameContent"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--&gt;-->
+            <!--<ScrollView-->
+            <!--android:id="@+id/textAreaScroller"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:scrollbars="vertical">-->
 
-                    <!--&lt;!&ndash;<TextView&ndash;&gt;-->
-                    <!--&lt;!&ndash;android:id="@+id/noti_msg"&ndash;&gt;-->
-                    <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
-                    <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
-                    <!--&lt;!&ndash;android:layout_gravity="center_vertical"&ndash;&gt;-->
-                    <!--&lt;!&ndash;android:ellipsize="end"&ndash;&gt;-->
-                    <!--&lt;!&ndash;android:maxLines="5"&ndash;&gt;-->
-                    <!--&lt;!&ndash;android:text="123 Hello World"&ndash;&gt;-->
-                    <!--&lt;!&ndash;android:textColor="@color/black"&ndash;&gt;-->
-                    <!--&lt;!&ndash;android:textSize="16sp"/>&ndash;&gt;-->
-                <!--</ScrollView>-->
+            <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+            <!--&lt;!&ndash;android:id="@+id/noti_msg"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_gravity="center_vertical"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:ellipsize="end"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:maxLines="5"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:text="123 Hello World"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:textColor="@color/black"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:textSize="16sp"/>&ndash;&gt;-->
+            <!--</ScrollView>-->
 
             <!--</FrameLayout>-->
         </android.support.v4.view.ViewPager>
 
 
-
         <FrameLayout
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
             <ImageButton
                 android:id="@+id/btnNext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:background="@android:color/transparent"
                 android:contentDescription="Next"
-                android:src="@drawable/ic_keyboard_arrow_right_black_24dp"
-                android:layout_gravity="center" />
+                android:src="@drawable/ic_keyboard_arrow_right_black_24dp"/>
         </FrameLayout>
 
     </LinearLayout>
@@ -187,83 +196,88 @@
 
         <FrameLayout
             android:layout_width="0dp"
-            android:layout_weight="0.5"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_weight="0.5">
 
         </FrameLayout>
 
         <FrameLayout
             android:layout_width="0dp"
-            android:layout_weight="4.2"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_weight="4.2">
 
             <EditText
+                android:id="@+id/edtSendMessageNotification_Box"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
+                android:gravity="center"
+                android:hint="Input Message"
                 android:inputType="text"
                 android:maxLines="1"
-                android:hint="Input Message"
+                android:textColor="@color/black"
                 android:textColorHint="@color/text_gray"
-                android:gravity="center"
-                android:textSize="16sp"
-                android:id="@+id/edtSendMessageNotification_Box" />
+                android:textSize="16sp"/>
 
         </FrameLayout>
 
         <FrameLayout
+            android:id="@+id/coordinatorLayout"
             android:layout_width="0dp"
-            android:layout_weight="0.8"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_weight="0.8">
 
             <ImageButton
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:background="@android:color/transparent"
-                android:contentDescription="Reply message"
-                android:src="@drawable/ic_send_black_24dp"
-                android:layout_gravity="center_vertical"
-                android:id="@+id/btnSendMessage" />
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="Reply message"
+            android:src="@drawable/ic_send_black_24dp"
+            android:layout_gravity="center_vertical"
+            android:id="@+id/btnSendMessage" />
+
         </FrameLayout>
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_marginTop="10dp"
         android:layout_marginBottom="15dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <FrameLayout
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
             <Button
                 android:id="@+id/btnClose"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/accent"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:textSize="13sp"
                 android:layout_gravity="center"
-                android:text="@string/close" />
+                android:background="@color/white"
+                android:text="@string/close"
+                android:textColor="@color/text_gray"
+                android:textSize="13sp"
+                android:textStyle="bold"/>
         </FrameLayout>
 
         <FrameLayout
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
             <Button
                 android:id="@+id/btnShow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/accent"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:textSize="13sp"
                 android:layout_gravity="center"
-                android:text="@string/show" />
+                android:background="@color/white"
+                android:text="@string/show"
+                android:textColor="@color/text_gray"
+                android:textSize="13sp"
+                android:textStyle="bold"/>
         </FrameLayout>
     </LinearLayout>
 
